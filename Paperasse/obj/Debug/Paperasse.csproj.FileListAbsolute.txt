@@ -1,0 +1,15 @@
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\Paperasse.exe.config
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\Paperasse.exe
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\Paperasse.pdb
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\IronOcr.dll
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\IronOcr.French.dll
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\IronOcr.xml
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\bin\Debug\IronOcr.French.xml
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.csprojAssemblyReference.cache
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.Form1.resources
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.Properties.Resources.resources
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.csproj.GenerateResource.cache
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.csproj.CoreCompileInputs.cache
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.csproj.CopyComplete
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.exe
+c:\users\jvillossel\source\repos\Paperasse\Paperasse\obj\Debug\Paperasse.pdb
