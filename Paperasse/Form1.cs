@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,12 @@ namespace Paperasse
                 ColorDepth = 4
             };
 
-            var testImage = @"C:\Users\jvillossel\Downloads\factureImage.png";
+            
+            var Path = Application.ExecutablePath;
+            Path = Directory.GetParent(Path).ToString();
+            var lePath = Directory.GetParent(Path).ToString();
+
+            var testImage = lePath + @"\..\Factures\Agema.jpg";
 
             var Results = Ocr.Read(testImage);
 
