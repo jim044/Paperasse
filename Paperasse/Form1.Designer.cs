@@ -33,6 +33,8 @@
             this.textBoxTextATrouve = new System.Windows.Forms.TextBox();
             this.labelTextTrouve = new System.Windows.Forms.Label();
             this.progressBarSearchOCR = new System.Windows.Forms.ProgressBar();
+            this.buttonRechercher = new System.Windows.Forms.Button();
+            this.labelCheminFichier = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -59,12 +61,11 @@
             // labelTextTrouve
             // 
             this.labelTextTrouve.AutoSize = true;
-            this.labelTextTrouve.Location = new System.Drawing.Point(103, 101);
+            this.labelTextTrouve.Location = new System.Drawing.Point(104, 165);
             this.labelTextTrouve.Name = "labelTextTrouve";
             this.labelTextTrouve.Size = new System.Drawing.Size(60, 13);
             this.labelTextTrouve.TabIndex = 2;
             this.labelTextTrouve.Text = "Non trouvé";
-            this.labelTextTrouve.Click += new System.EventHandler(this.labelTextTrouve_Click);
             // 
             // progressBarSearchOCR
             // 
@@ -73,11 +74,31 @@
             this.progressBarSearchOCR.Size = new System.Drawing.Size(100, 23);
             this.progressBarSearchOCR.TabIndex = 3;
             // 
+            // buttonRechercher
+            // 
+            this.buttonRechercher.Location = new System.Drawing.Point(80, 122);
+            this.buttonRechercher.Name = "buttonRechercher";
+            this.buttonRechercher.Size = new System.Drawing.Size(114, 23);
+            this.buttonRechercher.TabIndex = 4;
+            this.buttonRechercher.Text = "Rechercher";
+            this.buttonRechercher.UseVisualStyleBackColor = true;
+            this.buttonRechercher.Click += new System.EventHandler(this.buttonRechercher_Click);
+            // 
+            // labelCheminFichier
+            // 
+            this.labelCheminFichier.AutoSize = true;
+            this.labelCheminFichier.Location = new System.Drawing.Point(23, 82);
+            this.labelCheminFichier.Name = "labelCheminFichier";
+            this.labelCheminFichier.Size = new System.Drawing.Size(0, 13);
+            this.labelCheminFichier.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 572);
+            this.Controls.Add(this.labelCheminFichier);
+            this.Controls.Add(this.buttonRechercher);
             this.Controls.Add(this.progressBarSearchOCR);
             this.Controls.Add(this.labelTextTrouve);
             this.Controls.Add(this.textBoxTextATrouve);
@@ -97,6 +118,8 @@
         private System.Windows.Forms.TextBox textBoxTextATrouve;
         private System.Windows.Forms.Label labelTextTrouve;
         private System.Windows.Forms.ProgressBar progressBarSearchOCR;
+        private System.Windows.Forms.Button buttonRechercher;
+        private System.Windows.Forms.Label labelCheminFichier;
     }
 }
 

@@ -14,6 +14,7 @@ namespace Paperasse
 {
     public partial class Form1 : Form
     {
+        private OpenFileDialog openFile = new OpenFileDialog();
         public Form1()
         {
             InitializeComponent();
@@ -21,30 +22,6 @@ namespace Paperasse
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-
-
-
-            //var OcrBis = new AdvancedOcr()
-            //{
-            //    CleanBackgroundNoise = false,
-            //    ColorDepth = 4,
-            //    ColorSpace = AdvancedOcr.OcrColorSpace.Color,
-            //    EnhanceContrast = false,
-            //    DetectWhiteTextOnDarkBackgrounds = false,
-            //    RotateAndStraighten = false,
-            //    Language = IronOcr.Languages.French.OcrLanguagePack,
-            //    EnhanceResolution = false,
-            //    InputImageType = AdvancedOcr.InputTypes.Document,
-            //    ReadBarCodes = true,
-            //    Strategy = AdvancedOcr.OcrStrategy.Fast
-            //};
-
-            //var ResultsBis = OcrBis.ReadPdf(@"C:\Users\jvillossel\Downloads\Old\2018-03-ALLIANCE-JVIL Facture Kode4You F18030002.pdf");
-            //var Pages = ResultsBis.Pages;
-            //var BarcodesBis = ResultsBis.Barcodes;
-            //var FullPdfText = ResultsBis.Text;
-            //Console.WriteLine(FullPdfText);
         }
 
         private void buttonParcourir_Click(object sender, EventArgs e)
@@ -54,13 +31,13 @@ namespace Paperasse
             progressBarSearchOCR.Minimum = 0;
             progressBarSearchOCR.Step = 1;
 
-            OpenFileDialog openFile = new OpenFileDialog();
             openFile.DefaultExt = "png";
             openFile.Filter = "PNG|*.png|JPG|*.jpg";
             openFile.ShowDialog();
+
             if (openFile.FileNames.Length > 0)
             {
-                trouverLeText(openFile.FileName);
+                labelCheminFichier.Text = openFile.FileName;
             }
         }
 
@@ -136,9 +113,12 @@ namespace Paperasse
             }
         }
 
-        private void labelTextTrouve_Click(object sender, EventArgs e)
+        private void buttonRechercher_Click(object sender, EventArgs e)
         {
-
+            if (openFile.FileNames.Length > 0)
+            {
+                trouverLeText(openFile.FileName);
+            }
         }
     }
 }
