@@ -21,75 +21,7 @@ namespace Paperasse
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var Ocr = new AdvancedOcr()
-            {
-                CleanBackgroundNoise = true,
-                EnhanceContrast = true,
-                EnhanceResolution = true,
-                Language = IronOcr.Languages.French.OcrLanguagePack,
-                Strategy = IronOcr.AdvancedOcr.OcrStrategy.Advanced,
-                ColorSpace = AdvancedOcr.OcrColorSpace.Color,
-                DetectWhiteTextOnDarkBackgrounds = true,
-                InputImageType = AdvancedOcr.InputTypes.AutoDetect,
-                RotateAndStraighten = true,
-                ReadBarCodes = true,
-                ColorDepth = 4
-            };
-
             
-            var Path = Application.ExecutablePath;
-            Path = Directory.GetParent(Path).ToString();
-            var lePath = Directory.GetParent(Path).ToString();
-
-            var testImage = lePath + @"\..\Factures\Agema.jpg";
-
-            var Results = Ocr.Read(testImage);
-
-            var Barcodes = Results.Barcodes.Select(b => b.Value);
-
-            foreach (var page in Results.Pages)
-            {
-                // page object
-                int page_number = page.PageNumber;
-                String page_text = page.Text;
-                int page_wordcount = page.WordCount;
-
-                System.Drawing.Image page_image = page.Image;
-
-                int page_width_px = page.Width;
-                int page_height_px = page.Height;
-
-                foreach (var paragraph in page.Paragraphs)
-                {
-
-                    foreach (var line in paragraph.Lines)
-                    {
-
-                        foreach (var word in line.Words)
-                        {
-                            String word_text = word.Text;
-                            //Console.WriteLine(word_text);
-                            if (word_text == "SMEG" || word_text == "Fideli")
-                            {
-                                Console.WriteLine(word_text);
-                            }
-
-                            //foreach (var character in word.Characters)
-                            //{
-                            //    // pages -> paragraphs -> lines -> words -> characters
-                            //    int character_number = character.CharacterNumber;
-                            //    String character_text = character.Text;
-                            //    System.Drawing.Image character_image = character.Image;
-                            //    int character_x_location = character.X;
-                            //    int character_y_location = character.Y;
-                            //    int character_width = character.Width;
-                            //    int character_height = character.Height;
-                            //    double character_ocr_accuracy = character.Confidence;
-                            //}
-                        }
-                    }
-                }
-            }
 
 
 
@@ -113,6 +45,100 @@ namespace Paperasse
             //var BarcodesBis = ResultsBis.Barcodes;
             //var FullPdfText = ResultsBis.Text;
             //Console.WriteLine(FullPdfText);
+        }
+
+        private void buttonParcourir_Click(object sender, EventArgs e)
+        {
+            labelTextTrouve.Text = "Non trouvé";
+            progressBarSearchOCR.Maximum = 0;
+            progressBarSearchOCR.Minimum = 0;
+            progressBarSearchOCR.Step = 1;
+
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.DefaultExt = "png";
+            openFile.Filter = "PNG|*.png|JPG|*.jpg";
+            openFile.ShowDialog();
+            if (openFile.FileNames.Length > 0)
+            {
+                trouverLeText(openFile.FileName);
+            }
+        }
+
+        private void trouverLeText(string fileName)
+        {
+            var Ocr = new AdvancedOcr()
+            {
+                CleanBackgroundNoise = true,
+                EnhanceContrast = true,
+                EnhanceResolution = true,
+                Language = IronOcr.Languages.French.OcrLanguagePack,
+                Strategy = IronOcr.AdvancedOcr.OcrStrategy.Advanced,
+                ColorSpace = AdvancedOcr.OcrColorSpace.Color,
+                DetectWhiteTextOnDarkBackgrounds = true,
+                InputImageType = AdvancedOcr.InputTypes.AutoDetect,
+                RotateAndStraighten = true,
+                ReadBarCodes = true,
+                ColorDepth = 4
+            };
+
+
+            //var Path = Application.ExecutablePath;
+            //Path = Directory.GetParent(Path).ToString();
+            //var lePath = Directory.GetParent(Path).ToString();
+            //var testImage = fileName;
+
+            var Results = Ocr.Read(fileName);
+
+            var Barcodes = Results.Barcodes.Select(b => b.Value);
+            var nbWord = 0;
+
+           
+
+            foreach (var a in Results.Pages[0].Words)
+            {
+                nbWord += 1;
+            }
+
+            progressBarSearchOCR.Maximum = nbWord;
+            progressBarSearchOCR.Minimum = 0;
+            progressBarSearchOCR.Step = 1;
+
+
+            foreach (var page in Results.Pages)
+            {
+                int page_number = page.PageNumber;
+                String page_text = page.Text;
+                int page_wordcount = page.WordCount;
+
+                System.Drawing.Image page_image = page.Image;
+
+                int page_width_px = page.Width;
+                int page_height_px = page.Height;
+
+                foreach (var paragraph in page.Paragraphs)
+                {
+
+                    foreach (var line in paragraph.Lines)
+                    {
+
+                        foreach (var word in line.Words)
+                        {
+                            progressBarSearchOCR.PerformStep();
+                            String word_text = word.Text;
+                            if (word_text == textBoxTextATrouve.Text)
+                            {
+                                Console.WriteLine(word_text);
+                                labelTextTrouve.Text = "Trouvé";  
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void labelTextTrouve_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
