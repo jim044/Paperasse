@@ -1,6 +1,6 @@
 ﻿namespace Paperasse
 {
-    partial class Form1
+    partial class Paperasse
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -43,9 +43,10 @@
             // 
             // buttonParcourir
             // 
-            this.buttonParcourir.Location = new System.Drawing.Point(26, 56);
+            this.buttonParcourir.Location = new System.Drawing.Point(537, 507);
+            this.buttonParcourir.Margin = new System.Windows.Forms.Padding(4);
             this.buttonParcourir.Name = "buttonParcourir";
-            this.buttonParcourir.Size = new System.Drawing.Size(220, 23);
+            this.buttonParcourir.Size = new System.Drawing.Size(293, 28);
             this.buttonParcourir.TabIndex = 0;
             this.buttonParcourir.Text = "Parcourir";
             this.buttonParcourir.UseVisualStyleBackColor = true;
@@ -53,32 +54,36 @@
             // 
             // textBoxTextATrouve
             // 
-            this.textBoxTextATrouve.Location = new System.Drawing.Point(26, 12);
+            this.textBoxTextATrouve.Location = new System.Drawing.Point(537, 453);
+            this.textBoxTextATrouve.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTextATrouve.Name = "textBoxTextATrouve";
-            this.textBoxTextATrouve.Size = new System.Drawing.Size(220, 20);
+            this.textBoxTextATrouve.Size = new System.Drawing.Size(292, 22);
             this.textBoxTextATrouve.TabIndex = 1;
             // 
             // labelTextTrouve
             // 
             this.labelTextTrouve.AutoSize = true;
-            this.labelTextTrouve.Location = new System.Drawing.Point(104, 165);
+            this.labelTextTrouve.Location = new System.Drawing.Point(641, 641);
+            this.labelTextTrouve.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTextTrouve.Name = "labelTextTrouve";
-            this.labelTextTrouve.Size = new System.Drawing.Size(60, 13);
+            this.labelTextTrouve.Size = new System.Drawing.Size(78, 17);
             this.labelTextTrouve.TabIndex = 2;
             this.labelTextTrouve.Text = "Non trouvé";
             // 
             // progressBarSearchOCR
             // 
-            this.progressBarSearchOCR.Location = new System.Drawing.Point(282, 12);
+            this.progressBarSearchOCR.Location = new System.Drawing.Point(878, 453);
+            this.progressBarSearchOCR.Margin = new System.Windows.Forms.Padding(4);
             this.progressBarSearchOCR.Name = "progressBarSearchOCR";
-            this.progressBarSearchOCR.Size = new System.Drawing.Size(100, 23);
+            this.progressBarSearchOCR.Size = new System.Drawing.Size(133, 28);
             this.progressBarSearchOCR.TabIndex = 3;
             // 
             // buttonRechercher
             // 
-            this.buttonRechercher.Location = new System.Drawing.Point(80, 122);
+            this.buttonRechercher.Location = new System.Drawing.Point(609, 588);
+            this.buttonRechercher.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRechercher.Name = "buttonRechercher";
-            this.buttonRechercher.Size = new System.Drawing.Size(114, 23);
+            this.buttonRechercher.Size = new System.Drawing.Size(152, 28);
             this.buttonRechercher.TabIndex = 4;
             this.buttonRechercher.Text = "Rechercher";
             this.buttonRechercher.UseVisualStyleBackColor = true;
@@ -87,24 +92,26 @@
             // labelCheminFichier
             // 
             this.labelCheminFichier.AutoSize = true;
-            this.labelCheminFichier.Location = new System.Drawing.Point(23, 82);
+            this.labelCheminFichier.Location = new System.Drawing.Point(31, 101);
+            this.labelCheminFichier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCheminFichier.Name = "labelCheminFichier";
-            this.labelCheminFichier.Size = new System.Drawing.Size(0, 13);
+            this.labelCheminFichier.Size = new System.Drawing.Size(0, 17);
             this.labelCheminFichier.TabIndex = 5;
             // 
-            // Form1
+            // Paperasse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 572);
+            this.ClientSize = new System.Drawing.Size(1501, 704);
             this.Controls.Add(this.labelCheminFichier);
             this.Controls.Add(this.buttonRechercher);
             this.Controls.Add(this.progressBarSearchOCR);
             this.Controls.Add(this.labelTextTrouve);
             this.Controls.Add(this.textBoxTextATrouve);
             this.Controls.Add(this.buttonParcourir);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Paperasse";
+            this.Text = "Paperasse";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

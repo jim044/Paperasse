@@ -1,8 +1,10 @@
 ﻿using IronOcr;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -12,16 +14,54 @@ using System.Windows.Forms;
 
 namespace Paperasse
 {
-    public partial class Form1 : Form
+    public partial class Paperasse : Form
     {
         private OpenFileDialog openFile = new OpenFileDialog();
-        public Form1()
+
+        private MySqlConnection connection;
+        private string server;
+        private string database;
+        private string uid;
+        private string password;
+        private string sslmode;
+
+        public Paperasse()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=paperasseData;");
+            conn.Open();
+
+            string query = "SELECT * FROM fournisseur";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+
+            //server = "localhost";
+            //database = "paperasse";
+            //uid = "root";
+            //password = "";
+            //sslmode = "none";
+            //string connectionString;
+            //connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+            //database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";SSLMODE="+ sslmode +";";
+
+            //connection = new MySqlConnection(connectionString);
+            //connection.Open();
+
+            //string query = "SELECT * FROM fournisseur";
+
+            //MySqlCommand cmd = new MySqlCommand(query, connection);
+            ////Create a data reader and Execute the command
+            //MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            //while (dataReader.Read())
+            //{
+            //     string first = dataReader["nom"].ToString();
+            //}
         }
 
         private void buttonParcourir_Click(object sender, EventArgs e)
@@ -119,6 +159,16 @@ namespace Paperasse
             {
                 trouverLeText(openFile.FileName);
             }
+        }
+
+        private void connexionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
